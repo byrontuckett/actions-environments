@@ -1,0 +1,17 @@
+name: Hello ENVs
+
+env:
+  NAME: 'This is a Demo'
+  
+on:
+  workflow_call:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print name
+      run: echo "Hello $NAME"
+    - uses: actions/checkout@v3
