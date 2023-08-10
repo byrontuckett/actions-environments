@@ -8,9 +8,11 @@ on:
 
 
 jobs:
-  gday_dev:
-    uses: byrontuckett/actions-environments/.github/workflows/hello-called-workflow.yml@main
+  deployment_dev:
+    runs-on: ubuntu-latest
     environment: Development
-  gday_uat:
     uses: byrontuckett/actions-environments/.github/workflows/hello-called-workflow.yml@main
+  deployment_uat:
+    runs-on: ubuntu-latest
     environment: UAT
+    uses: byrontuckett/actions-environments/.github/workflows/hello-called-workflow.yml@main
