@@ -1,17 +1,21 @@
 name: Hello ENVs
-
-env:
-  NAME: 'This is a Demo'
   
 on:
   workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
 
     steps:
-    - name: Print name
-      run: echo "Hello $NAME"
-    - uses: actions/checkout@v3
+    - name: Print variable
+      run: echo "Printed Variable $NAME"
+      env:
+        NAME: ${{ vars.NAME }}
+

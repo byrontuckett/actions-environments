@@ -6,13 +6,12 @@ on:
   pull_request:
     branches: [ "main" ]
 
-
 jobs:
   deployment_dev:
-    runs-on: ubuntu-latest
-    environment: Development
     uses: byrontuckett/actions-environments/.github/workflows/hello-called-workflow.yml@main
+    with:
+      ENVIRONMENT: Development
   deployment_uat:
-    runs-on: ubuntu-latest
-    environment: UAT
     uses: byrontuckett/actions-environments/.github/workflows/hello-called-workflow.yml@main
+    with:
+      ENVIRONMENT: UAT
